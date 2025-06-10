@@ -24,6 +24,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    command: >
+      sh -c "./wait-for-db.sh && nginx -g 'daemon off;'"
     restart: always
 
 volumes:
